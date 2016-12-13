@@ -89,6 +89,7 @@ init_altimeter()
 init_attitude_indicator()
 init_info_bars()
 init_HSI()
+init_hotkeys()
 init_bezel_input()
 init_data_subscriptions()
 
