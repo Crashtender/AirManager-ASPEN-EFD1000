@@ -15,17 +15,7 @@ function init_data_subscriptions()
 
 
 
-xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/radio_altimeter_height_ft_pilot", "FLOAT",
-					  "sim/cockpit/misc/radio_altimeter_minimum", "FLOAT",
-					  "sim/flightmodel/misc/h_ind", "FLOAT", 
-					  "sim/cockpit2/gauges/indicators/airspeed_kts_pilot", "FLOAT",
-					  --"sim/aircraft/view/acf_Vne", "FLOAT",
-					  --"sim/aircraft/view/acf_Vno", "FLOAT", 
-					  "sim/cockpit/autopilot/altitude", "FLOAT", new_altitudeorspeed)
-fsx_variable_subscribe("RADIO HEIGHT", "FEET",
-					   "INDICATED ALTITUDE", "FEET",
-					   "AIRSPEED INDICATED", "KNOTS",
-					   "AUTOPILOT ALTITUDE LOCK VAR", "FEET", new_altitudeorspeed_fsx)
+
 --------------------------------------------------------------------------------------------------------------------------
 xpl_dataref_subscribe("sim/flightmodel/position/phi", "FLOAT",
 					  "sim/flightmodel/position/theta", "FLOAT", 
