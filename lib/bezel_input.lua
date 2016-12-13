@@ -5,7 +5,7 @@ function init_bezel_input()
 	-----------------------------------------------------------
 
 	-- Button REV (ON/OFF)
-	function new_latbuttonrevstate(latbuttonrevstate)
+	function REV_key_clicked(latbuttonrevstate)
 	--print(latbuttonrevstate)
 	buttonpressed=true
 	if latbuttonrevstate==1 then
@@ -19,11 +19,11 @@ function init_bezel_input()
 		end--if
 	end-- 
 	----------------------------------------------------------------------------
-	am_variable_subscribe("am_latbuttonrevstate","INT",new_latbuttonrevstate)
-	new_latbuttonrevstate(1) -- force la jauge sur ON en mode debug 
+	am_variable_subscribe("EFD1000_PFD_REV_key","INT",REV_key_clicked)
+	REV_key_clicked(1) -- force la jauge sur ON en mode debug / Force ON in debug mode
 	----------------------------------------------------------------------------
 	-- Button 1 (TPS)
-	function new_latbutton1state(latbutton1state)
+	function bezel_key_1_pressed(latbutton1state)
 		buttonpressed=true
 		--print(latbutton1state)
 		if (latbutton1state==1) then
@@ -34,10 +34,10 @@ function init_bezel_input()
 			end
 		end
 	end
-	am_variable_subscribe("am_latbutton1state","INT",new_latbutton1state)
+	am_variable_subscribe("EFD1000_PFD_bezel_key_1","INT",bezel_key_1_pressed)
 
 	-- Button 2 (MIN)
-	function new_latbutton2state(latbutton2state)
+	function bezel_key_2_pressed(latbutton2state)
 		buttonpressed=true
 		--print(latbutton2state)
 		if latbutton2state==1 then
@@ -57,10 +57,10 @@ function init_bezel_input()
 		end--if
 		-- affichage du minimum
 	end-- 
-	am_variable_subscribe("am_latbutton2state","INT",new_latbutton2state)
+	am_variable_subscribe("EFD1000_PFD_bezel_key_2","INT",bezel_key_2_pressed)
 
 	-- Bottom Center button
-	function new_centerbuttonstate(HSIsource)
+	function CDI_button_pressed(HSIsource)
 		buttonpressed=true
 		if HSIsource>2 then 
 			HSIsource=1
@@ -75,10 +75,10 @@ function init_bezel_input()
 			--txt_set(txt_centerbutton,"GPS1")
 		end
 	end
-	am_variable_subscribe("am_centerbuttonstate","INT",new_centerbuttonstate)
+	am_variable_subscribe("EFD1000_PFD_CDI_button","INT",CDI_button_pressed)
 
 	-- Bottom Left button
-	function new_leftbuttonstate(RMI1source)
+	function left_button_pressed(RMI1source)
 		buttonpressed=true
 		if RMI1source>3 then 
 			RMI1source=0
@@ -94,10 +94,10 @@ function init_bezel_input()
 			rmi1mode=3 -- GPS1
 		end
 	end -- function
-	am_variable_subscribe("am_leftbuttonstate","INT",new_leftbuttonstate)
+	am_variable_subscribe("EFD1000_PFD_left_button_pressed","INT",left_button_pressed)
 
 	-- Bottom Right button
-	function new_rightbuttonstate(RMI2source)
+	function right_button_pressed(RMI2source)
 		buttonpressed=true
 		if RMI2source>3 then 
 			RMI2source=0
@@ -116,6 +116,6 @@ function init_bezel_input()
 			txt_set(txt_rightbutton,"GPS1")
 		end
 	end-- function
-	am_variable_subscribe("am_rightbuttonstate","INT",new_rightbuttonstate)
+	am_variable_subscribe("EFD1000_PFD_right_button_pressed","INT",right_button_pressed)
 
 end

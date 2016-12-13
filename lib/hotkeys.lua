@@ -1,6 +1,6 @@
-function init_hotkeys()
+function init_bezel_keys()
 
-	---        hotkey  1 TPS         ---
+	---        bezel_key  1 TPS         ---
 	-------- Tapes display -----------------
 	function display_tapes(display)
 		-- si l'affichage des tapes a été demandé
